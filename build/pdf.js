@@ -2584,11 +2584,6 @@ class PDFWorker {
         return mainWorkerMessageHandler;
       }
 
-      if (_is_node.isNodeJS && typeof require === "function") {
-        const worker = eval("require")(this.workerSrc);
-        return worker.WorkerMessageHandler;
-      }
-
       await (0, _display_utils.loadScript)(this.workerSrc);
       return window.pdfjsWorker.WorkerMessageHandler;
     };
